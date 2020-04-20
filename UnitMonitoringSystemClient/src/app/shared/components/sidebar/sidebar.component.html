@@ -1,0 +1,36 @@
+<mat-nav-list>
+    <div class="instance-name-card">
+        <div class="header">
+            <h2>Test Instance</h2>
+            <h4>Description for test instance</h4>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    
+    <div class="instances-header-section">
+        <h2 matSubheader>Instances</h2>
+        <button class="add-instance-button" mat-icon-button>
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/">Dashboard</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/instance2">Dashboard 2</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/instance3">Dashboard 3</a>
+    
+    <mat-divider></mat-divider>
+
+    <div class="sidebar-bottom-content">
+        <mat-divider></mat-divider>
+        <div class="profile-id-card">
+            <div id="user-img-container">
+                <img class="user-img" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="">
+            </div>
+            <div class="user-id-container">
+                <label>Test User</label>
+                <br/>
+                <label>ID#1234</label>
+            </div>       
+        </div>
+    </div>
+</mat-nav-list>
