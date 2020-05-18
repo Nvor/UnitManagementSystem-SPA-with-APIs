@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nickb\\source\\repos\\UnitMonitoringSystem\\UnitMonitoringSystemServer\\UnitMonitoringSystem.Interface\\UnitMonitoringSystem.Interface.csproj": {}
+    "C:\\Users\\nick_\\Source\\Repos\\UnitManagementSystem-SPA-with-APIs\\UnitMonitoringSystemServer\\UnitMonitoringSystem.Interface\\UnitMonitoringSystem.Interface.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nickb\\source\\repos\\UnitMonitoringSystem\\UnitMonitoringSystemServer\\UnitMonitoringSystem.Interface\\UnitMonitoringSystem.Interface.csproj": {
+    "C:\\Users\\nick_\\Source\\Repos\\UnitManagementSystem-SPA-with-APIs\\UnitMonitoringSystemServer\\UnitMonitoringSystem.Interface\\UnitMonitoringSystem.Interface.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nickb\\source\\repos\\UnitMonitoringSystem\\UnitMonitoringSystemServer\\UnitMonitoringSystem.Interface\\UnitMonitoringSystem.Interface.csproj",
+        "projectUniqueName": "C:\\Users\\nick_\\Source\\Repos\\UnitManagementSystem-SPA-with-APIs\\UnitMonitoringSystemServer\\UnitMonitoringSystem.Interface\\UnitMonitoringSystem.Interface.csproj",
         "projectName": "UnitMonitoringSystem.Interface",
-        "projectPath": "C:\\Users\\nickb\\source\\repos\\UnitMonitoringSystem\\UnitMonitoringSystemServer\\UnitMonitoringSystem.Interface\\UnitMonitoringSystem.Interface.csproj",
-        "packagesPath": "C:\\Users\\nickb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nickb\\source\\repos\\UnitMonitoringSystem\\UnitMonitoringSystemServer\\UnitMonitoringSystem.Interface\\obj\\",
+        "projectPath": "C:\\Users\\nick_\\Source\\Repos\\UnitManagementSystem-SPA-with-APIs\\UnitMonitoringSystemServer\\UnitMonitoringSystem.Interface\\UnitMonitoringSystem.Interface.csproj",
+        "packagesPath": "C:\\Users\\nick_\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nick_\\Source\\Repos\\UnitManagementSystem-SPA-with-APIs\\UnitMonitoringSystemServer\\UnitMonitoringSystem.Interface\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\nickb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nick_\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -52,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
