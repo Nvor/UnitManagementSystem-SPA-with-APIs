@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpService } from 'src/app/core/services/http.service';
+import { HttpService } from './http.service';
 import { Observable } from 'rxjs';
-import { Unit } from 'src/app/core/models/unit.model';
-import { HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Instance } from '../models/instance.model';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +14,11 @@ export class InstanceService {
     private httpService: HttpService
   ) { }
 
-  getUnits(): Observable<Unit[]> {
+  getInstances(): Observable<Instance[]> {
     const params = {};
 
     return this.httpService.get(
-      '/tempunit',
+      '/instance',
       new HttpParams({ fromObject: params })
     ).pipe(map((data) => data));
   }

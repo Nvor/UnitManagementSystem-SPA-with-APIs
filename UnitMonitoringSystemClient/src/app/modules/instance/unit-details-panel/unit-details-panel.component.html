@@ -1,1 +1,81 @@
-<p>unit-details-panel works!</p>
+<div class="unit-details-container">
+    <mat-toolbar>
+        <mat-toolbar-row>
+            <div class="header-id">#153</div>
+            <span class="fill-space"></span>
+            <div class="header-action">
+                <div *ngIf="!editUnitDetails">
+                    <button mat-icon-button (click)="toggleEdit()">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </div>
+                <div *ngIf="editUnitDetails">
+                    <button mat-icon-button (click)="saveUnit()">
+                        <mat-icon>save</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="deleteUnit()">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="cancelEdit()">
+                        <mat-icon>cancel</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <div *ngIf="!editUnitDetails">
+        <br>
+        <h3 style="text-align:center;">Unit Name</h3>
+
+        <h5>Description:</h5>
+        <p>
+            Morbi sagittis convallis justo sit amet tincidunt. Curabitur sit amet viverra risus. Integer pharetra, dui
+            eu
+            eleifend viverra, ligula eros consectetur justo, semper
+            vulputate sapien mi eget magna. Phasellus fringilla hendrerit tellus. Sed elit ipsum, eleifend vel nisl non,
+            pretium congue massa. Cras semper laoreet dolor ac posuere.
+            Sed diam diam, egestas lobortis facilisis ac, venenatis sit amet sapien.
+        </p>
+
+        <h5>Created By:</h5>
+        <p>TestUser</p>
+
+        <h5>Last Modified:</h5>
+        <p>2020-05-12 16:47</p>
+    </div>
+
+    <div *ngIf="editUnitDetails">
+        <br>
+        <div class="example-container">
+            <form [formGroup]="unitForm" (ngSubmit)="onSubmit(unitForm)">
+                <mat-form-field appearance="fill" class="form-element">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name">
+                    <mat-error *ngIf="unitForm.get('name').hasError('required')">
+                        Name is required
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill" class="form-element">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput formControlName="description"></textarea>
+                    <mat-error *ngIf="unitForm.get('description').hasError('required')">
+                        Description is required
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill" class="form-element">
+                    <mat-label>Status</mat-label>
+                    <mat-select>
+                        <mat-option value="option">Active</mat-option>
+                        <mat-option value="option">Inactive</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button mat-raised-button type="submit" [disabled]="!unitForm.valid" class="form-element">Save</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>

@@ -16,13 +16,21 @@
     <div class="instances-header-section">
         <h2 matSubheader>Instances</h2>
         <button class="add-instance-button" mat-icon-button>
-            <mat-icon>add</mat-icon>
+            
         </button>
     </div>
 
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/instance"><mat-icon>supervised_user_circle</mat-icon>Dashboard</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/instance2"><mat-icon>supervised_user_circle</mat-icon>Dashboard 2</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/instance3"><mat-icon>supervised_user_circle</mat-icon>Dashboard 3</a>
+
+    <a *ngFor="let instance of availableInstances" mat-list-item routerLinkActive="list-item-active" routerLink="/instance">
+        <mat-icon>supervised_user_circle</mat-icon>
+        {{ instance.name }}
+    </a>
+
+    <a mat-list-item>
+        <mat-icon>add</mat-icon>
+        Add an instance..
+    </a>
     
     <mat-divider></mat-divider>
 

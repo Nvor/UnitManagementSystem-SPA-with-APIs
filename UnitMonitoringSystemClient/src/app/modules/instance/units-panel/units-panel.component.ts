@@ -9,7 +9,6 @@ import { Unit } from 'src/app/core/models/unit.model';
 })
 export class UnitsPanelComponent implements OnInit {
 
-  unitNames: string[];
   units: Unit[];
 
   constructor(
@@ -18,7 +17,6 @@ export class UnitsPanelComponent implements OnInit {
 
   ngOnInit(): void {
     this.instanceService.getUnits()
-      //.subscribe((names) => this.unitNames = names);
       .subscribe((u) => this.units = u);
   }
 
