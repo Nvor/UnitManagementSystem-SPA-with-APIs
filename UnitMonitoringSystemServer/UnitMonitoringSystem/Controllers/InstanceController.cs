@@ -15,7 +15,8 @@ namespace UnitMonitoringSystem.Controllers
         [HttpGet]
         public IEnumerable<Instance> Get()
         {
-            return Instance.GetTestInstanceData();
+            //return Instance.GetTestInstanceData();
+            return Instance.GetAllTestInstanceData();
         }
 
         [HttpGet("{id}", Name = "GetInstance")]

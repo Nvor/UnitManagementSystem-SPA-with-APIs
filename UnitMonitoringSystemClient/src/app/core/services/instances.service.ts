@@ -14,7 +14,7 @@ export class InstanceService {
     private httpService: HttpService
   ) { }
 
-  getInstances(): Observable<Instance[]> {
+  getInstances(): Observable<Array<Instance>> {
     const params = {};
 
     return this.httpService.get(

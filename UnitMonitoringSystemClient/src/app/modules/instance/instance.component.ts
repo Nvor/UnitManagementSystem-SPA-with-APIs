@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UnitDetailsPanelComponent } from './unit-details-panel/unit-details-panel.component';
 
 @Component({
   selector: 'app-instance',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InstanceComponent implements OnInit {
 
+  newUnit: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addNewUnit() {
+    console.log('new unit click emitted');
+    this.newUnit = !this.newUnit;
   }
 
 }

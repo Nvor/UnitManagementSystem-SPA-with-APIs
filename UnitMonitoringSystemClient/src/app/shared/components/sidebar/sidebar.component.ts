@@ -9,7 +9,7 @@ import { Instance } from 'src/app/core/models/instance.model';
 })
 export class SidebarComponent implements OnInit {
 
-  availableInstances: Instance[];
+  availableInstances: Array<Instance>;
 
   constructor(
     private instancesService: InstanceService
