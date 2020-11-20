@@ -1,8 +1,0 @@
-C:\Users\nick_\Source\Repos\UnitManagementSystem-SPA-with-APIs\UnitMonitoringSystemServer\UnitMonitoringSystem.Interface\bin\Debug\netcoreapp3.1\UnitMonitoringSystem.Interface.deps.json
-C:\Users\nick_\Source\Repos\UnitManagementSystem-SPA-with-APIs\UnitMonitoringSystemServer\UnitMonitoringSystem.Interface\bin\Debug\netcoreapp3.1\UnitMonitoringSystem.Interface.dll
-C:\Users\nick_\Source\Repos\UnitManagementSystem-SPA-with-APIs\UnitMonitoringSystemServer\UnitMonitoringSystem.Interface\bin\Debug\netcoreapp3.1\UnitMonitoringSystem.Interface.pdb
-C:\Users\nick_\Source\Repos\UnitManagementSystem-SPA-with-APIs\UnitMonitoringSystemServer\UnitMonitoringSystem.Interface\obj\Debug\netcoreapp3.1\UnitMonitoringSystem.Interface.csproj.CoreCompileInputs.cache
-C:\Users\nick_\Source\Repos\UnitManagementSystem-SPA-with-APIs\UnitMonitoringSystemServer\UnitMonitoringSystem.Interface\obj\Debug\netcoreapp3.1\UnitMonitoringSystem.Interface.AssemblyInfoInputs.cache
-C:\Users\nick_\Source\Repos\UnitManagementSystem-SPA-with-APIs\UnitMonitoringSystemServer\UnitMonitoringSystem.Interface\obj\Debug\netcoreapp3.1\UnitMonitoringSystem.Interface.AssemblyInfo.cs
-C:\Users\nick_\Source\Repos\UnitManagementSystem-SPA-with-APIs\UnitMonitoringSystemServer\UnitMonitoringSystem.Interface\obj\Debug\netcoreapp3.1\UnitMonitoringSystem.Interface.dll
-C:\Users\nick_\Source\Repos\UnitManagementSystem-SPA-with-APIs\UnitMonitoringSystemServer\UnitMonitoringSystem.Interface\obj\Debug\netcoreapp3.1\UnitMonitoringSystem.Interface.pdb

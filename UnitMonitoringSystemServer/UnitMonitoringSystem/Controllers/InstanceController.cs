@@ -2,52 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using UnitMonitoringSystem.Models;
+using UnitMonitoringSystem.Api.Features.Instances.Queries;
 
-namespace UnitMonitoringSystem.Controllers
+namespace UnitMonitoringSystem.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class InstanceController : ControllerBase
     {
+        private readonly IMediator mediator;
+
+        public InstanceController(IMediator mediator)
+        {
+            this.mediator = mediator;
+        }
+
         [HttpGet]
-        public IEnumerable<Instance> Get()
+        public async Task<IActionResult> Get()
         {
-            //return Instance.GetTestInstanceData();
-            return Instance.GetAllTestInstanceData();
+            var instances = await mediator.Send(new GetInstances(0));
+            return Ok(instances);
         }
-
-        [HttpGet("{id}", Name = "GetInstance")]
-        public Instance Get(int id)
-        {
-            return Instance.GetTestInstanceData().FirstOrDefault((i) => i.Id == id);
-        }
-
-        // GET: api/Instance/5
-        //[HttpGet("{id}", Name = "Get")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
-
-        //// POST: api/Instance
-        //[HttpPost]
-        //public void Post([FromBody] string value)
-        //{
-        //}
-
-        //// PUT: api/Instance/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
-
-        //// DELETE: api/ApiWithActions/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
     }
 }

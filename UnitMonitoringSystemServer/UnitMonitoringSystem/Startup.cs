@@ -6,12 +6,19 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using UnitMonitoringSystem.Infrastructure.Data;
+using MediatR;
+using AutoMapper;
+using UnitMonitoringSystem.Api.Features.Instances.Queries;
+using UnitMonitoringSystem.Core.Interfaces;
+using UnitMonitoringSystem.Infrastructure.Data.Repositories;
 
-namespace UnitMonitoringSystem
+namespace UnitMonitoringSystem.Api
 {
     public class Startup
     {
@@ -27,6 +34,15 @@ namespace UnitMonitoringSystem
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IInstanceRepository, InstanceRepository>();
+            services.AddScoped<IUnitRepository, UnitRepository>();
+
+            services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("UnitManagementSystemDatabase")));
+
+            services.AddAutoMapper(GetType().Assembly);
+            services.AddMediatR(typeof(GetInstancesHandler).Assembly);
+
             services.AddCors(options =>
             {
                 options.AddPolicy(name: CorsPolicy,
