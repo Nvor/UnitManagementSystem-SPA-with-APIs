@@ -24,8 +24,6 @@
 
   <ItemGroup>
     <Folder Include="Features\Events\" />
-    <Folder Include="Features\Instances\Commands\" />
-    <Folder Include="Features\Units\Commands\" />
   </ItemGroup>
 
   <ItemGroup>

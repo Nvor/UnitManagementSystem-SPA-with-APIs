@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using UnitMonitoringSystem.Api.Features.Instances.Commands;
 using UnitMonitoringSystem.Api.Features.Instances.Queries;
+using UnitMonitoringSystem.Api.ViewModels;
 
 namespace UnitMonitoringSystem.Api.Controllers
 {
@@ -25,6 +27,43 @@ namespace UnitMonitoringSystem.Api.Controllers
         {
             var instances = await mediator.Send(new GetInstances(0));
             return Ok(instances);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetByIdWithUnits(int id)
+        {
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] InstanceViewModel instance)
+        {
+            var newInstance = await mediator.Send(new AddInstance(instance));
+            return Created("/api/instance/{newInstance.ID}", newInstance);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Put([FromBody] InstanceViewModel instance)
+        {
+            var response = await mediator.Send(new UpdateInstance(instance));
+            if (response.HasError)
+            {
+                return NotFound();
+            }
+
+            return Ok();
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete([FromBody] InstanceViewModel instance)
+        {
+            var response = await mediator.Send(new DeleteInstance(instance));
+            if (response.HasError)
+            {
+                return NotFound();
+            }
+
+            return Ok();
         }
     }
 }

@@ -13,6 +13,7 @@ namespace UnitMonitoringSystem.Api.Mappings
         public DefaultMapperProfile()
         {
             CreateMap<Instance, InstanceViewModel>();
+            CreateMap<InstanceViewModel, Instance>();
             CreateMap<Unit, UnitViewModel>();
         }
     }
