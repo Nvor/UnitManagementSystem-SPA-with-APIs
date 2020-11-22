@@ -23,6 +23,7 @@ namespace UnitMonitoringSystem.Api.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(200)]
         public async Task<IActionResult> Get()
         {
             var instances = await mediator.Send(new GetInstances(0));
@@ -30,12 +31,14 @@ namespace UnitMonitoringSystem.Api.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(200)]
         public async Task<IActionResult> GetByIdWithUnits(int id)
         {
             return Ok();
         }
 
         [HttpPost]
+        [ProducesResponseType(201)]
         public async Task<IActionResult> Post([FromBody] InstanceViewModel instance)
         {
             var newInstance = await mediator.Send(new AddInstance(instance));
@@ -43,6 +46,8 @@ namespace UnitMonitoringSystem.Api.Controllers
         }
 
         [HttpPut]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
         public async Task<IActionResult> Put([FromBody] InstanceViewModel instance)
         {
             var response = await mediator.Send(new UpdateInstance(instance));
@@ -55,6 +60,8 @@ namespace UnitMonitoringSystem.Api.Controllers
         }
 
         [HttpDelete]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
         public async Task<IActionResult> Delete([FromBody] InstanceViewModel instance)
         {
             var response = await mediator.Send(new DeleteInstance(instance));

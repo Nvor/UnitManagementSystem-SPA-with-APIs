@@ -17,6 +17,7 @@ using AutoMapper;
 using UnitMonitoringSystem.Api.Features.Instances.Queries;
 using UnitMonitoringSystem.Core.Interfaces;
 using UnitMonitoringSystem.Infrastructure.Data.Repositories;
+using Microsoft.OpenApi.Models;
 
 namespace UnitMonitoringSystem.Api
 {
@@ -39,6 +40,16 @@ namespace UnitMonitoringSystem.Api
 
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("UnitManagementSystemDatabase")));
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { 
+                    Title = "UnitMonitoringSystem", 
+                    Version = "v1",
+                    Description = "API for accessing Unit Management System data"});
+            });
+
+            services.AddControllers();
 
             services.AddAutoMapper(GetType().Assembly);
             services.AddMediatR(typeof(GetInstancesHandler).Assembly);
@@ -63,6 +74,16 @@ namespace UnitMonitoringSystem.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "UMS API V1");
+            });
 
             app.UseHttpsRedirection();
 

@@ -24,6 +24,7 @@ namespace UnitMonitoringSystem.Api.Controllers
 
         // Remove later - Units should only be pulled by user/instance/unit id
         [HttpGet]
+        [ProducesResponseType(200)]
         public async Task<IActionResult> Get()
         {
             var units = await mediator.Send(new GetUnits());
@@ -31,6 +32,7 @@ namespace UnitMonitoringSystem.Api.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(201)]
         public async Task<IActionResult> Post([FromBody] UnitViewModel unit)
         {
             var newUnit = await mediator.Send(new AddUnit(unit));
@@ -38,6 +40,8 @@ namespace UnitMonitoringSystem.Api.Controllers
         }
 
         [HttpPut]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
         public async Task<IActionResult> Put([FromBody] UnitViewModel unit)
         {
             var response = await mediator.Send(new UpdateUnit(unit));
@@ -50,6 +54,8 @@ namespace UnitMonitoringSystem.Api.Controllers
         }
 
         [HttpDelete]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
         public async Task<IActionResult> Delete([FromBody] UnitViewModel unit)
         {
             var response = await mediator.Send(new DeleteUnit(unit));
