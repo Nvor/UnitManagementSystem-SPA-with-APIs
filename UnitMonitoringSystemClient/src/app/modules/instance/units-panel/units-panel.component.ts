@@ -1,6 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { InstanceService } from '../instance.service';
 import { Unit } from 'src/app/core/models/unit.model';
+import { Instance } from 'src/app/core/models/instance.model';
 
 @Component({
   selector: 'app-units-panel',
@@ -10,6 +11,7 @@ import { Unit } from 'src/app/core/models/unit.model';
 export class UnitsPanelComponent implements OnInit {
 
   @Output() addNewUnit: EventEmitter<any> = new EventEmitter<any>();
+  @Input() instance: Instance;
 
   units: Unit[];
 

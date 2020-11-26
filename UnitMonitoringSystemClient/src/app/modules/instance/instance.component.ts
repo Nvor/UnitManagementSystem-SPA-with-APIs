@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Instance } from 'src/app/core/models/instance.model';
+import { InstanceDataService } from 'src/app/core/services/instance-data.service';
 import { UnitDetailsPanelComponent } from './unit-details-panel/unit-details-panel.component';
 
 @Component({
@@ -9,14 +11,17 @@ import { UnitDetailsPanelComponent } from './unit-details-panel/unit-details-pan
 export class InstanceComponent implements OnInit {
 
   newUnit: boolean = false;
+  instance: Instance;
 
-  constructor() { }
+  constructor(
+    private instanceDataService: InstanceDataService) { 
+    }
 
   ngOnInit(): void {
+    this.instanceDataService.instanceData$.subscribe(instance => this.instance = instance);
   }
 
   addNewUnit() {
-    console.log('new unit click emitted');
     this.newUnit = !this.newUnit;
   }
 

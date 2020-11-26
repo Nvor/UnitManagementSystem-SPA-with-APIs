@@ -18,8 +18,14 @@ export class InstanceService {
     const params = {};
 
     return this.httpService.get(
-      '/tempunit',
+      '/Unit',
       new HttpParams({ fromObject: params })
     ).pipe(map((data) => data));
+  }
+
+  getUnitsByInstance(instanceId: number): Observable<Unit[]> {
+    return this.httpService.get(
+      '/Unit/' + instanceId)
+      .pipe(map((data) => data));
   }
 }

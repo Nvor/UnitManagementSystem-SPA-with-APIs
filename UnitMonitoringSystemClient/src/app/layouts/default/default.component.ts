@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Instance } from 'src/app/core/models/instance.model';
+import { InstanceDataService } from 'src/app/core/services/instance-data.service';
 import { InstanceService } from 'src/app/core/services/instances.service';
 
 @Component({
@@ -11,9 +12,11 @@ export class DefaultComponent implements OnInit {
 
   sideBarOpen: boolean = true;
   availableInstances: Array<Instance>;
+  activeInstance: Instance;
   
   constructor(
-    private instancesService: InstanceService
+    private instancesService: InstanceService,
+    private instanceDataService: InstanceDataService
   ) { }
 
   ngOnInit() {
@@ -23,5 +26,10 @@ export class DefaultComponent implements OnInit {
 
   sideBarToggle() {
     this.sideBarOpen = !this.sideBarOpen;
+  }
+
+  setActiveInstance(activeInstance: Instance) {
+    this.activeInstance = activeInstance;
+    this.instanceDataService.passInstance(this.activeInstance);
   }
 }

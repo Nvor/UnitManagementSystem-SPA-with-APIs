@@ -1,5 +1,5 @@
 export interface Instance {
-    instanceId: number;
+    id: number;
     name: string;
     description: string;
 }

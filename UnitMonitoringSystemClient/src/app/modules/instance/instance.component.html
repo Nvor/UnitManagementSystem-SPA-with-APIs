@@ -1,6 +1,6 @@
 <div fxLayout="Row" fxLayoutAlign="space-between center">
     <mat-card fxFlex="1 1 33%">
-        <app-units-panel (addNewUnit)="addNewUnit()"></app-units-panel>
+        <app-units-panel (addNewUnit)="addNewUnit()" [instance]="instance"></app-units-panel>
     </mat-card>
     <mat-card fxFlex="1 1 33%">
         <app-unit-details-panel [newUnit]="newUnit"></app-unit-details-panel>

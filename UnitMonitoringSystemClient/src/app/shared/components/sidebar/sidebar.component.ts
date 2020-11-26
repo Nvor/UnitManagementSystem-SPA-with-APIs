@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { InstanceService } from 'src/app/core/services/instances.service';
 import { Instance } from 'src/app/core/models/instance.model';
 
@@ -8,16 +8,17 @@ import { Instance } from 'src/app/core/models/instance.model';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-
-  availableInstances: Array<Instance>;
+  @Input() availableInstances: Array<Instance>;
+  @Output() activeInstance: EventEmitter<Instance> = new EventEmitter<Instance>();
 
   constructor(
-    private instancesService: InstanceService
   ) { }
 
   ngOnInit() {
-    this.instancesService.getInstances()
-      .subscribe((i) => this.availableInstances = i);
+  }
+
+  selectInstance(selectedInstance: Instance): void {
+    this.activeInstance.emit(selectedInstance);
   }
 
 }

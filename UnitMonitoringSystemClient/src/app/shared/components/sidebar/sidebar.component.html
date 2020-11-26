@@ -22,7 +22,7 @@
 
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/instance"><mat-icon>supervised_user_circle</mat-icon>Dashboard</a>
 
-    <a *ngFor="let instance of availableInstances" mat-list-item routerLinkActive="list-item-active" routerLink="/instance">
+    <a *ngFor="let instance of availableInstances" mat-list-item routerLinkActive="list-item-active" routerLink="/instance" (click)="selectInstance(instance)">
         <mat-icon>supervised_user_circle</mat-icon>
         {{ instance.name }}
     </a>
