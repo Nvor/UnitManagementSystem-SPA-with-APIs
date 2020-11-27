@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 import { Instance } from '../models/instance.model';
 
 @Injectable({
@@ -9,7 +9,7 @@ export class InstanceDataService {
 
   constructor() { }
 
-  private instanceData: BehaviorSubject<Instance> = new BehaviorSubject<Instance>();
+  private instanceData: ReplaySubject<Instance> = new ReplaySubject<Instance>();
 
   instanceData$ = this.instanceData.asObservable();
 

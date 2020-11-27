@@ -1,9 +1,9 @@
 <div fxLayout="Row" fxLayoutAlign="space-between center">
     <mat-card fxFlex="1 1 33%">
-        <app-units-panel (addNewUnit)="addNewUnit()" [instance]="instance"></app-units-panel>
+        <app-units-panel [instance]="instance" (activeUnit)="setUnit($event)" (addNewUnit)="addNewUnit()"></app-units-panel>
     </mat-card>
     <mat-card fxFlex="1 1 33%">
-        <app-unit-details-panel [newUnit]="newUnit"></app-unit-details-panel>
+        <app-unit-details-panel [activeUnit]="activeUnit" [newUnit]="newUnit"></app-unit-details-panel>
     </mat-card>
     <mat-card fxFlex="1 1 33%">
         <app-units-operations-log></app-units-operations-log>

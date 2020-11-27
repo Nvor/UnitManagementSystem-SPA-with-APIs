@@ -22,12 +22,11 @@ namespace UnitMonitoringSystem.Api.Controllers
             this.mediator = mediator;
         }
 
-        // Remove later - Units should only be pulled by user/instance/unit id
-        [HttpGet]
+        [HttpGet("{instanceId}")]
         [ProducesResponseType(200)]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get(int instanceId)
         {
-            var units = await mediator.Send(new GetUnits());
+            var units = await mediator.Send(new GetUnitsByInstance(instanceId));
             return Ok(units);
         }
 

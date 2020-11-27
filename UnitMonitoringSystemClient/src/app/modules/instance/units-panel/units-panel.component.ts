@@ -11,6 +11,7 @@ import { Instance } from 'src/app/core/models/instance.model';
 export class UnitsPanelComponent implements OnInit {
 
   @Output() addNewUnit: EventEmitter<any> = new EventEmitter<any>();
+  @Output() activeUnit: EventEmitter<Unit> = new EventEmitter<Unit>();
   @Input() instance: Instance;
 
   units: Unit[];
@@ -20,8 +21,12 @@ export class UnitsPanelComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.instanceService.getUnits()
+    this.instanceService.getUnitsByInstance(this.instance.id)
       .subscribe((u) => this.units = u);
+  }
+
+  accessUnit(unit: Unit) {
+    this.activeUnit.emit(unit);
   }
 
   addUnit() {

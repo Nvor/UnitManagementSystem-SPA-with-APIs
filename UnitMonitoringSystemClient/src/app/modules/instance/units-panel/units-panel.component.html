@@ -11,7 +11,7 @@
     </mat-toolbar>
     <div class="units-content">
         <mat-action-list role="list" dense>
-            <mat-list-item *ngFor="let unit of units" role="listitem" class="unit-list-item">
+            <mat-list-item *ngFor="let unit of units" role="listitem" class="unit-list-item" (click)="accessUnit(unit)">
                 {{ unit.unitId }} | {{ unit.name }} |
                 <div class="unit-date"> {{ unit.dateCreated }} </div>
             </mat-list-item>

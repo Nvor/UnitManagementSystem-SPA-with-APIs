@@ -8,11 +8,17 @@ import { Unit } from 'src/app/core/models/unit.model';
   styleUrls: ['./unit-details-panel.component.scss']
 })
 export class UnitDetailsPanelComponent implements OnInit, OnChanges {
-
+  @Input() activeUnit: Unit;
   @Input() newUnit: boolean = false;
 
+  unitInUse: Unit;
   editUnitDetails: boolean = false;
+  displayMode: UnitDisplayMode = UnitDisplayMode.View;
   unitForm: FormGroup;
+
+  public get unitDisplayMode(): typeof UnitDisplayMode {
+    return UnitDisplayMode;
+  }
 
   constructor(
     private formBuilder: FormBuilder
@@ -20,34 +26,63 @@ export class UnitDetailsPanelComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.unitForm = this.formBuilder.group({
+      id: [''],
       name: ['', Validators.required],
       description: ['', Validators.required]
     });
+
+    if (this.unitInUse == null) {
+      this.createUnit();
+    }
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    if (changes['activeUnit'] && !changes['activeUnit'].firstChange) {
+      this.setUnit();
+    }
     if (changes['newUnit']) {
       this.createUnit();
     }
   }
 
   createUnit() {
-    this.resetForm();
+    if (this.unitForm) {
+      this.resetForm();
+    }
+    this.displayMode = UnitDisplayMode.Create;
     this.editUnitDetails = true;
   }
 
-  saveUnit() {
+  setUnit() {
+    this.displayMode = UnitDisplayMode.Edit;
+    this.editUnitDetails = true;
+    this.displayData();
+    this.populateFormData();
+  }
 
+  displayData() {
+    console.log(this.activeUnit.id);
+    console.log(this.activeUnit.name);
+    console.log(this.activeUnit.description);
+  }
+
+  populateFormData() {
+    this.unitForm = this.formBuilder.group({
+      id: [this.activeUnit.id],
+      name: [this.activeUnit.name, Validators.required],
+      description: [this.activeUnit.description, Validators.required]
+    });
+  }
+
+  saveUnit() {
     this.toggleEdit();
   }
 
   deleteUnit() {
-
     this.toggleEdit();
   }
 
   cancelEdit() {
-
     this.toggleEdit();
   }
 
@@ -56,8 +91,8 @@ export class UnitDetailsPanelComponent implements OnInit, OnChanges {
   }
 
   onSubmit(form: FormGroup) {
-    
     console.log('Valid?', form.valid);
+    console.log('Id', form.value.id);
     console.log('Name', form.value.name);
     console.log('Description', form.value.description);
 
@@ -76,4 +111,10 @@ export class UnitDetailsPanelComponent implements OnInit, OnChanges {
   getDescriptionError() {
     return this.unitForm.get('description').hasError('required')
   }
+}
+
+enum UnitDisplayMode {
+  Create,
+  Edit,
+  View
 }

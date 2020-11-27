@@ -1,15 +1,15 @@
 <div class="unit-details-container">
     <mat-toolbar>
         <mat-toolbar-row>
-            <div class="header-id">#153</div>
+            <div class="header-id">#{{activeUnit?(activeUnit.id):'NEW'}}</div>
             <span class="fill-space"></span>
             <div class="header-action">
-                <div *ngIf="!editUnitDetails">
+                <div *ngIf="displayMode == unitDisplayMode.View">
                     <button mat-icon-button (click)="toggleEdit()">
                         <mat-icon>edit</mat-icon>
                     </button>
                 </div>
-                <div *ngIf="editUnitDetails">
+                <div *ngIf="displayMode == unitDisplayMode.Edit">
                     <button mat-icon-button (click)="saveUnit()">
                         <mat-icon>save</mat-icon>
                     </button>
@@ -19,6 +19,9 @@
                     <button mat-icon-button (click)="cancelEdit()">
                         <mat-icon>cancel</mat-icon>
                     </button>
+                </div>
+                <div *ngIf="displayMode == unitDisplayMode.Create">
+                    <h4>Create a unit</h4>
                 </div>
             </div>
         </mat-toolbar-row>
