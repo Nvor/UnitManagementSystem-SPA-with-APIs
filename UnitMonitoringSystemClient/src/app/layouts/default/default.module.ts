@@ -13,6 +13,7 @@ import { MatTableModule } from '@angular/material/table';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DashboardService } from 'src/app/modules/dashboard.service';
 import { InstanceModule } from 'src/app/modules/instance/instance.module';
+import { DashboardModule } from 'src/app/modules/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { InstanceModule } from 'src/app/modules/instance/instance.module';
     MatPaginatorModule,
     MatTableModule,
     MatListModule,
-    InstanceModule
+    InstanceModule,
+    DashboardModule
   ],
   providers: [
     DashboardService
