@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DashboardService } from '../dashboard.service';
-import { GridsterConfig, GridsterItem, GridType } from 'angular-gridster2';
+import { GridsterConfig, GridsterItem, GridsterItemComponent, GridType } from 'angular-gridster2';
+import { GridsterWidget } from './widgets/models/gridster-widget';
+import { WidgetSize } from './widgets/models/widget-size';
 
 @Component({
   selector: 'app-dashboard',
@@ -34,8 +36,8 @@ export class DashboardComponent implements OnInit {
       swap: true,
       disableWindowResize: true,
       displayGrid: 'onDrag&Resize',
-      itemChangeCallback: DashboardComponent.itemChange,
-      itemResizeCallback: DashboardComponent.itemResize
+      itemChangeCallback: DashboardComponent.itemChange.bind(this),
+      itemResizeCallback: DashboardComponent.itemResize.bind(this)
     };
 
     this.dashboard = [
@@ -44,8 +46,20 @@ export class DashboardComponent implements OnInit {
     ];
   }
 
-  static itemChange(item, itemComponent) {
-    console.info('itemChanged', item, itemComponent);
+  // static itemChange(item, itemComponent) {
+  //   console.info('itemChanged', item, itemComponent);
+  // }
+
+  static itemChange(widget: GridsterWidget, itemComponent: GridsterItemComponent) {
+    if (widget) {
+      this.checkSizeRestrictions(widget);
+      widget.size = new WidgetSize(widget.rows, widget.cols);
+      widget.size.height = itemComponent.height;
+    }
+  }
+
+  static checkSizeRestrictions(widget: GridsterWidget) {
+    //check resize restrictions
   }
 
   static itemResize(item, itemComponent) {
