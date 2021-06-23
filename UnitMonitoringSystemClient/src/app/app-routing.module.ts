@@ -4,10 +4,12 @@ import { DefaultComponent } from './layouts/default/default.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { InstanceComponent } from 'src/app/modules/instance/instance.component';
 import { Instance2Component } from 'src/app/modules/instance2/instance2.component';
+import { LoginComponent } from './modules/login/login.component';
 
 const routes: Routes = [{
   path: '',
-  component: DefaultComponent,
+  component: LoginComponent,
+  //component: DefaultComponent
   children: [{
     path: '',
     component: DashboardComponent
