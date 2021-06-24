@@ -1,21 +1,25 @@
 <div class="login-form-container">
-    <div [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
-        <mat-form-field appearance="fill">
+    <mat-icon class="login-icon lf-element">history_edu</mat-icon>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+        <mat-form-field appearance="fill" class="lf-element">
             <mat-label>Email</mat-label>
-            <input type="email" matInput formControlName="email" class="lf-element">
+            <input type="email" matInput formControlName="email">
             <mat-error *ngIf="loginForm.get('email').hasError('required')">
                 Email is required
             </mat-error>
         </mat-form-field>
         <br>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="lf-element">
             <mat-label>Password</mat-label>
-            <input type="password" matInput formControlName="password" class="lf-element">
+            <input type="password" matInput formControlName="password">
             <mat-error *ngIf="loginForm.get('password').hasError('required')">
                 Password is required
             </mat-error>
         </mat-form-field>
         <br>
-        <button mat-raised-button type="submit" [disabled]="!loginForm.valid" class="lf-element">LOGIN</button>
-    </div>
+        <button mat-raised-button type="submit" [disabled]="!loginForm.valid" class="lf-element login-btn">LOGIN</button>
+        <div class="login-error-message" *ngFor="let msg of errorMessages">
+            <span>{{ msg }}</span>
+        </div>
+    </form>
 </div>

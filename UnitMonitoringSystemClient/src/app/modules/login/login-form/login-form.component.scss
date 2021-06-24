@@ -1,8 +1,23 @@
-.login-form-container {
-
-}
 
 .lf-element {
     width: 100%;
     padding: 5px 5px 5px 5px;
+}
+
+.login-btn {
+    margin-top: 15px;
+}
+
+.login-icon {
+    font-size: 100px;
+    margin-bottom: 100px;
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
+}
+
+.login-error-message {
+    color: red;
 }
