@@ -29,12 +29,12 @@ export class LoginFormComponent implements OnInit {
       this.errorMessages.push('Invalid credentials')
     }
 
-    let username = loginForm.value.email,
+    let email = loginForm.value.email,
         password = loginForm.value.password;
     
     this.userIsloggingIn(true);
     try {
-      var userAuth = this.loginService.login(username, password);
+      var userAuth = this.loginService.login(email, password);
     } catch (error) {
       console.log('Error logging in: ' + error)
       this.errorMessages.push('Error trying to log in')

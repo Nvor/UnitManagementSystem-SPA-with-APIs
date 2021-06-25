@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class HttpService {
+export abstract class HttpService {
 
   constructor(
     private httpClient: HttpClient,
